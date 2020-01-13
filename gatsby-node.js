@@ -25,7 +25,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create blog posts pages.
   const posts = result.data.allContentfulBlogPost.edges
-  console.log('posts: ', posts);
 
   posts.forEach((post, index) => {
     createPage({
