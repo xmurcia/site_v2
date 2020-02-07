@@ -7,10 +7,25 @@
 
 import React from "react"
 import Image from "gatsby-image"
-
+import { useStaticQuery, graphql } from 'gatsby'
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
+
+const data = useStaticQuery(graphql`
+  query UserPicture {
+    allContentfulAsset(filter: {title: {eq: "Sparkler"}}) {
+      edges {
+        node {
+          title
+          fixed(width: 100) {
+            ...GatsbyContentfulFixed
+          }
+        }
+      }
+    }
+  }`)
+
   return (
     <div
       style={{
@@ -19,7 +34,7 @@ const Bio = () => {
       }}
     >
       <Image
-        fixed={''}
+        fixed={ data.allContentfulAsset.edges[0].node.fixed }
         alt={'author'}
         style={{
           marginRight: rhythm(1 / 2),
