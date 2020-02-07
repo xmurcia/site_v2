@@ -1,7 +1,16 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import  { IoIosHeart } from 'react-icons/io';
 import { rhythm, scale } from "../utils/typography"
+import { createGlobalStyle } from "styled-components"
+import { Anchor } from '../components/styled';
+
+const GlobalStyle = createGlobalStyle`
+  a {
+    box-shadow: unset;
+    text-decoration: none !important;
+  }
+`
 
 class Layout extends React.Component {
   render() {
@@ -52,22 +61,24 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <>
+        <GlobalStyle />
+        <div
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          <header>{header}</header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Powered by <Anchor href="https://www.gatsbyjs.org">Gatsby</Anchor>, <Anchor href="https://www.reactjs.org">React</Anchor> and <Anchor href="https://www.netlify.com">Netlify</Anchor>, built with <IoIosHeart color="red"/> by Xavi Murcia
+            {` `}
+          </footer>
+        </div>
+      </>
     )
   }
 }
