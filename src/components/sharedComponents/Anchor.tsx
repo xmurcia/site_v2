@@ -1,6 +1,10 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
-export const Anchor = styled.a`
+type AnchorProps = {
+  fromLeft?: boolean;
+};
+
+export const Anchor = styled('a') <AnchorProps>`
   color: #4834d4;
   position: relative;
   text-decoration: none;

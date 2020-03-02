@@ -5,14 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import Image from "gatsby-image"
-import { useStaticQuery, graphql } from 'gatsby'
-import { rhythm } from "../utils/typography"
+import React from 'react';
+import Image from 'gatsby-image';
+import { useStaticQuery, graphql } from 'gatsby';
+import { rhythm } from '../utils/typography';
 
-const Bio = () => {
+const Bio: React.FC<{}> = () => {
 
-const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
   query UserPicture {
     allContentfulAsset(filter: {title: {eq: "Sparkler"}}) {
       edges {
@@ -34,7 +34,7 @@ const data = useStaticQuery(graphql`
       }}
     >
       <Image
-        fixed={ data.allContentfulAsset.edges[0].node.fixed }
+        fixed={data.allContentfulAsset.edges[0].node.fixed}
         alt={'author'}
         style={{
           marginRight: rhythm(1 / 2),
@@ -56,6 +56,6 @@ const data = useStaticQuery(graphql`
       </p>
     </div>
   )
-}
+};
 
-export default Bio
+export default Bio;
