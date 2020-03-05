@@ -11,6 +11,6 @@
     "jsx": "react",
     "lib": ["dom", "esnext"]
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "declarations.d.ts"],
   "typeRoots": ["node_modules/@types"]
 }

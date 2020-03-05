@@ -93,7 +93,7 @@ const LandingWallGreeting = styled.h1`
   }
 `;
 
-export const Home: React.FC<{}> = (props: any) => {
+const Home: React.FC<{}> = (props: any) => {
 
   // const siteTitle = props.data.site.siteMetadata.title;
 
@@ -131,8 +131,10 @@ export const Home: React.FC<{}> = (props: any) => {
         />
       </Container> */}
     </Layout>
-  )
+  );
 };
+
+export default Home;
 
 export const pageQuery = graphql`
 query BlogIndexQuery {

@@ -5,8 +5,15 @@ import { rhythm, scale } from '../utils/typography';
 import { Anchor } from './sharedComponents';
 import { GlobalStyle } from '../styles/GlobalStyles';
 
-const Layout: React.FC<{}> = (props: any) => {
-  const { location, title, children } = props
+type LayoutProps = {
+  children: any;
+  location: { [key: string]: string };
+  noHeader: any;
+  title: string;
+};
+
+const Layout: React.FC<Partial<LayoutProps>> = (props: LayoutProps) => {
+  const { location, title, children } = props;
   //const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 
